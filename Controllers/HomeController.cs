@@ -1,0 +1,19 @@
+using Hospital_System.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+
+namespace Hospital_System.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+    }
+}

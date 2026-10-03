@@ -1,0 +1,31 @@
+﻿@using Hospital_System.ViewModel;
+@model List<AllAppointmentsTableVM>
+
+
+<div class="position-fixed top-0 start-0 w-100 vh-100 z-n1 bg-dark">
+    <img src="~/Photos/images/cover2 .jpg" alt="Hospital" class="w-100 h-100 object-fit-cover opacity-85" />
+</div>
+
+<div class="container mt-5">
+    <table class="table" d-flex justifu-content-center>
+        <thead>
+            <tr>
+                <th scope="col">Patient name </th>
+                <th scope="col">Doctor name</th>
+                <th scope="col">Date Of Appointments</th>
+                <th scope="col">Time Of Appointments</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr>
+                    <td>@t.PatientName</td>
+                    <td>@t.DoctorName</td>
+                    <td>@t.DateOfAppointments</td>
+                    <td>@t.TimeOfAppointments</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

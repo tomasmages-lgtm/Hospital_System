@@ -1,0 +1,66 @@
+﻿@using Hospital_System.ViewModel
+@model Doctors_SpecializationsVM
+
+<div class="position-fixed top-0 start-0 w-100 vh-100 z-n1 bg-dark">
+    <img src="~/Photos/images/cover2 .jpg" alt="Hospital" class="w-100 h-100 object-fit-cover opacity-85" />
+</div>
+
+<div class="container pt-5 mt-5">
+    <form class="search-bar d-flex gap-2 p-3 rounded-4" action="/BookAppointment/index">
+        <input type="text" class="form-control search-input"
+            placeholder="Search by name"  name="name"/>
+
+        <select class="form-select search-select" aria-label="Specialty" name="SpecializationId">
+            <option value="" selected disabled>All Specialties</option>
+            @foreach (var s in Model.Specializations)
+                {
+                <option value="@s.Id">@s.name</option>
+                }
+        </select>
+
+        <button type="submit" class="btn btn-search">
+            <i class="bi bi-search"></i> Search
+        </button>
+    </form>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var d in Model.Doctors)
+        {
+            <div class="col-sm-12 col-md-6 col-lg-3 my-3">
+                <div class="card doctor-card">
+                    <div class="doctor-img-wrap">
+                        <img src="~/Photos/images/@d.Img" alt="Doctor" class="doctor-img" />
+                    </div>
+                    <div class="card-body text-center">
+                        @{
+                            string DoctorFullName = d.Fname + " " + d.Lname;
+                        }
+                        <h5 class="doctor-name">Dr @DoctorFullName </h5>
+                        <h6>Specialization : @d.specialization.name</h6>
+                        <a href="/BookAppointment/GetForm?DoctorId=@d.Id" class="btn btn-book">
+                            <i class="bi bi-calendar-plus me-2"></i>Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-lg">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/BookAppointment/index?page=@i&name=@Context.Request.Query["name"]&SpecializationId=@Context.Request.Query["SpecializationId"]">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+

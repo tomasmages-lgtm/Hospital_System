@@ -1,0 +1,43 @@
+﻿@model int ;
+
+<div class="container pt-5 mt-5">
+    <form method="post" asp-controller="BookAppointment" asp-action="Book" asp-route-DoctorId="@Model">
+        <div class="mb-3">
+            <label for="First name" class="form-label">First name : </label>
+            <input type="text" class="form-control" id="First name" name="Fname">
+        </div>
+        <div class="mb-3">
+            <label for="Last name" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="Last name" name="Lname">
+        </div>
+                <div class="mb-3">
+            <label for="Date of Appointments" class="form-label">Date of Appointments</label>
+            <input type="date" class="form-control" id="Date of Appointments" name="DateOfAppointments">
+        </div>
+
+        <div class="mb-3">
+            <label for="TimeOfAppointments" class="form-label">Time of Appointments</label>
+            <select class="form-select" id="TimeOfAppointments" name="TimeOfAppointments" required>
+                <option value="" selected disabled>اختار الوقت المتاح</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="09:30">09:30 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="10:30">10:30 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="11:30">11:30 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="12:30">12:30 PM</option>
+                <option value="13:00">01:00 PM</option>
+                <option value="13:30">01:30 PM</option>
+                <option value="14:00">02:00 PM</option>
+                <option value="14:30">02:30 PM</option>
+                <option value="15:00">03:00 PM</option>
+                <option value="15:30">03:30 PM</option>
+                <option value="16:00">04:00 PM</option>
+                <option value="16:30">04:30 PM</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+<div />
